@@ -242,6 +242,15 @@ sales2019 &lt;- read.csv(&quot;sales2019.csv&quot;)</code></pre>
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2xpbXBzZShzYWxlczIwMTkpXG5gYGAifQ== -->
 <pre class="r"><code>glimpse(sales2019)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUm93czogNSwwMDBcbkNvbHVtbnM6IDVcbiQgZGF0ZSAgICAgICAgICAgICAgICAgIDxjaHI+IFwiNS8yMi8xOVwiLCBcIjExLzE2LzE5XCIsIFwiNi8yNy8xOVwiLCBcIjExLTA2LTE5XCIsIFwiNy8xOC8xOVwiLCBcIjEvMjgvMTlcIiwgXCIyLzIwLzE5XCIsIFwiflxuJCB1c2VyX3N1Ym1pdHRlZF9yZXZpZXcgPGNocj4gXCJpdCB3YXMgb2theVwiLCBcIkF3ZXNvbWUhXCIsIFwiQXdlc29tZSFcIiwgXCJBd2Vzb21lIVwiLCBcIkhhdGVkIGl0XCIsIFwiTmV2ZXIgcmVhZCBhIGJldH5cbiQgdGl0bGUgICAgICAgICAgICAgICAgIDxjaHI+IFwiU2VjcmV0cyBPZiBSIEZvciBBZHZhbmNlZCBTdHVkZW50c1wiLCBcIlIgRm9yIER1bW1pZXNcIiwgXCJSIEZvciBEdW1taWVzXCIsIFwiRnVuZGFtZX5cbiQgdG90YWxfcHVyY2hhc2VkICAgICAgIDxpbnQ+IDcsIDMsIDEsIDMsIE5BLCAxLCA1LCBOQSwgNywgMSwgNywgTkEsIDMsIDIsIDAsIDYsIDMsIDIsIE5BLCA0LCAzLCA0LCAzLCA2LCA0LCAzflxuJCBjdXN0b21lcl90eXBlICAgICAgICAgPGNocj4gXCJCdXNpbmVzc1wiLCBcIkJ1c2luZXNzXCIsIFwiSW5kaXZpZHVhbFwiLCBcIkluZGl2aWR1YWxcIiwgXCJCdXNpbmVzc1wiLCBcIkJ1c2luZXNzXCIsIFwiQnVzflxuIn0= -->
+<pre><code>Rows: 5,000
+Columns: 5
+$ date                  &lt;chr&gt; &quot;5/22/19&quot;, &quot;11/16/19&quot;, &quot;6/27/19&quot;, &quot;11-06-19&quot;, &quot;7/18/19&quot;, &quot;1/28/19&quot;, &quot;2/20/19&quot;, &quot;~
+$ user_submitted_review &lt;chr&gt; &quot;it was okay&quot;, &quot;Awesome!&quot;, &quot;Awesome!&quot;, &quot;Awesome!&quot;, &quot;Hated it&quot;, &quot;Never read a bet~
+$ title                 &lt;chr&gt; &quot;Secrets Of R For Advanced Students&quot;, &quot;R For Dummies&quot;, &quot;R For Dummies&quot;, &quot;Fundame~
+$ total_purchased       &lt;int&gt; 7, 3, 1, 3, NA, 1, 5, NA, 7, 1, 7, NA, 3, 2, 0, 6, 3, 2, NA, 4, 3, 4, 3, 6, 4, 3~
+$ customer_type         &lt;chr&gt; &quot;Business&quot;, &quot;Business&quot;, &quot;Individual&quot;, &quot;Individual&quot;, &quot;Business&quot;, &quot;Business&quot;, &quot;Bus~</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>The user_submitted_review column and the total_purchased column are both missing some data values. Also total_purchased is in integer form, so I will be converting this to a double to save some trouble doing calculations.</p>
@@ -281,6 +290,9 @@ sales2019 &lt;- read.csv(&quot;sales2019.csv&quot;)</code></pre>
 
 print(avgsales)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDQuMDAyNTY5XG4ifQ== -->
+<pre><code>[1] 4.002569</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -298,6 +310,13 @@ print(avgsales)</code></pre>
 
 head(sales)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6NiwibmNvbCI6NSwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbNiB4IDVdIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQnBWVHkyN1RRQlNkdUhuVktHMGxoTVFDaVlGOVltelVBQ3ZTVWhWWThGQzc2UzZhZUc3cEtQWk1OSStFN3RqekZYd0UvOFVYRks0ZlF4TkxRY1dTTmZlYys3NTM1dXprNG5sNEVSSkNka2k3MVNJN0hSUko5ODNuT0RsTUNHa0hpRnFrVFhhTDh5dGEzVWVoc0Rrb3pHcEY3ekJLa2loK1ZjTitIRWZ4K0JiM3hsSHlZa005ZkRZZTNxcFI5M0xOT282U0VtN211Q2NzWFRGRDFaeGQrMEJIS3pBcWh5ZDN4ZStZQlU2RnJmSERqN0FFVFRVd1RobWRnYldJWmtyTkc2bWZua09xd1JyNjZaS2UwVk9sNlJGZk1wbGlySFByT0VocmFzdEJwVDV4ZVM3Z24rVGpVeWM1eTlHWFpkaVVEM3dNWDRTVW9QL1Q3QzRWRXJKWDlEUjVSTXB2MHEvTzE3ODI4ZVFnK1BIOTU5c1BubS9Nb24vc2pKQmd6QlljdnBkY0xBVjNMTnZLYkkreGVkODZFanMzZFFHZG1teHpYR0l0UDNBRzlOUzRXUzV3ZDN5cVlTbGc1YjJ0c0ptMzNMY0tKemhkT0oxZU1RUGNyeVoxeHVJTjBWTjd2WUJHK2wydFZpTmZ3Z0QvNEZzMWoyNnp6alJqeHRmcHlSRHJaS05MamY2SWJob3VQYld3UWtsMEN0WWYxTitYcGh2RXZwTkZKWHlZWGprNUg0NkxCS1c2K2dmMTJWMlRPMVhLNEhkamdGMlFlSG44WURvWm00RmZ6QjUyWERZOFdtZ2gvVE1Ka1RXamNvQ2VTVlhtbWJJM2N2TUhTbFFYMVVnRUFBQT0ifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["date"],"name":[1],"type":["chr"],"align":["left"]},{"label":["user_submitted_review"],"name":[2],"type":["chr"],"align":["left"]},{"label":["title"],"name":[3],"type":["chr"],"align":["left"]},{"label":["total_purchased"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["customer_type"],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"5/22/19","2":"it was okay","3":"Secrets Of R For Advanced Students","4":"7.000000","5":"Business","_rn_":"1"},{"1":"11/16/19","2":"Awesome!","3":"R For Dummies","4":"3.000000","5":"Business","_rn_":"2"},{"1":"6/27/19","2":"Awesome!","3":"R For Dummies","4":"1.000000","5":"Individual","_rn_":"3"},{"1":"11-06-19","2":"Awesome!","3":"Fundamentals of R For Beginners","4":"3.000000","5":"Individual","_rn_":"4"},{"1":"7/18/19","2":"Hated it","3":"Fundamentals of R For Beginners","4":"4.002569","5":"Business","_rn_":"5"},{"1":"1/28/19","2":"Never read a better book","3":"Secrets Of R For Advanced Students","4":"1.000000","5":"Business","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10],"total":[5]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -310,6 +329,13 @@ head(sales)</code></pre>
   pull(user_submitted_review) %&gt;% 
     unique</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSBcIml0IHdhcyBva2F5XCIgICAgICAgICAgICAgICAgICAgICAgICAgIFwiQXdlc29tZSFcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiBbM10gXCJIYXRlZCBpdFwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcIk5ldmVyIHJlYWQgYSBiZXR0ZXIgYm9va1wiICAgICAgICAgICAgXG4gWzVdIFwiT0tcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXCJUaGUgYXV0aG9yJ3Mgb3RoZXIgYm9va3Mgd2VyZSBiZXR0ZXJcIlxuIFs3XSBcIkEgbG90IG9mIG1hdGVyaWFsIHdhcyBub3QgbmVlZGVkXCIgICAgIFwiXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiBbOV0gXCJXb3VsZCBub3QgcmVjb21tZW5kXCIgICAgICAgICAgICAgICAgICBcIkkgbGVhcm5lZCBhIGxvdFwiICAgICAgICAgICAgICAgICAgICAgXG4ifQ== -->
+<pre><code> [1] &quot;it was okay&quot;                          &quot;Awesome!&quot;                            
+ [3] &quot;Hated it&quot;                             &quot;Never read a better book&quot;            
+ [5] &quot;OK&quot;                                   &quot;The author&#39;s other books were better&quot;
+ [7] &quot;A lot of material was not needed&quot;     &quot;&quot;                                    
+ [9] &quot;Would not recommend&quot;                  &quot;I learned a lot&quot;                     </code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -331,6 +357,13 @@ head(sales)</code></pre>
 
 head(sales)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6NiwibmNvbCI6Niwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbNiB4IDZdIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQnBWVHkyNFRNUlIxcG5sMVVOcEtDSWtGRW9aOUVtWlEwN0lpTFZXQkJWQ2xtKzRpWjN4THJVenN5SStFN3RqekZYd0UvOFVYRk80OFRKaVJnc3BJMXZXNUw1LzdtTW5aMWN2d0tpU0U3SkJtbzBGMlduZ2w3VGNYVVh3WUU5SU1FRFZJayt4bThndDZQY3pNZUE1eVdSZzZoOE00SGthdlN0aU5vbUUwMnVET2FCZ2ZWY3o5RjZQK3hveTI0Nys4bzJHY3crb2JENFNsYTJhb21yTmJuK2hrRFVZdDRObDk4VHRtZ1ZOaFMvejRJNnhBVXcyTVUwWm5ZQzJpbVZMejJ0UFBMeUhSWUEzOWRFMG45RnhwZXNKWFRDYVk2OUk2RHRLYTByTlhtTS9jWWlIZ244cW41MDV5dHNCWWxtSlJQdkVwZkJaU2d2NVB0L3N3SkdRdnEybjhoT1RmdUZ2STF6K3JlSHdRZlAvMjQrMEhyNi8xb252cWpKQmd6QlljdnBkY3JBUjNMTjJxMlo0RHZjdjFJdm5lYlU2SksvdllrdGdaVXlQWTVEams4djdJR2RCVDQyWUxnYlBsVXcwckFXc2ZiWVZOdmVlK1Zkamg2ZExwNUlZWjRINTBpVE1XTjBoUDdlM3lqKytGTXNLS0ZVd25SYjRxcTEydDFnUFBySWNuK0ZyUWI5ZnBKeWt6bnI1WGhraWZEYTQxeGlPNnE0VjAxTklLSlRFb3lQN0RWaTI0b1d1S2ZTY3pKcnlmM0RnNTd4K1hEZlpON1pXeVhiMW5Ud2EveWxTdE1sVWJKTzZjNzBFclpUUHc4OXpEaXZPQ0Iwc3RwUCs3UXRTYVFkNVhyMGxVNmpWNWJlVHVOenhNTkN4L0JBQUEifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["date"],"name":[1],"type":["chr"],"align":["left"]},{"label":["user_submitted_review"],"name":[2],"type":["chr"],"align":["left"]},{"label":["title"],"name":[3],"type":["chr"],"align":["left"]},{"label":["total_purchased"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["customer_type"],"name":[5],"type":["chr"],"align":["left"]},{"label":["Positive_Review"],"name":[6],"type":["lgl"],"align":["right"]}],"data":[{"1":"5/22/19","2":"it was okay","3":"Secrets Of R For Advanced Students","4":"7.000000","5":"Business","6":"FALSE","_rn_":"1"},{"1":"11/16/19","2":"Awesome!","3":"R For Dummies","4":"3.000000","5":"Business","6":"TRUE","_rn_":"2"},{"1":"6/27/19","2":"Awesome!","3":"R For Dummies","4":"1.000000","5":"Individual","6":"TRUE","_rn_":"3"},{"1":"11-06-19","2":"Awesome!","3":"Fundamentals of R For Beginners","4":"3.000000","5":"Individual","6":"TRUE","_rn_":"4"},{"1":"7/18/19","2":"Hated it","3":"Fundamentals of R For Beginners","4":"4.002569","5":"Business","6":"FALSE","_rn_":"5"},{"1":"1/28/19","2":"Never read a better book","3":"Secrets Of R For Advanced Students","4":"1.000000","5":"Business","6":"TRUE","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10],"total":[6]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -346,6 +379,13 @@ head(sales)</code></pre>
 
 head(sales)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6NiwibmNvbCI6Niwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbNiB4IDZdIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQnBWVHYyOFRNUlIya3JzakRVcGJDU0V4SUhHd054SkZERXhOUzFSZ0FLcDA2WFp5enEvVXlwMGQrY2VGYm1YbWIyQmdZV0ZtWjBOaTYzL0NYMUI0Rjl1b2QxSlFzV1I5ZnArZlB6Ky85enlkbkR3Wm5Bd0lJVDBTZFRxa0YrT1NKTStQSHU4KzNTVWs2cUxWSVJIWnFQRTlldDJwdHhFM2F4eGZmcnFvL2NlWFA0bkRMOTcrNGZIcmQ0Y2ZpQnNOd1RndnFOYTQyTDVHUmhOcUFQSEs4NG5uYjNPVExxbE81WnllZTZxL3Z3UXRTM2g0VS9zbFNyT1VHMi9mZXdNVnFGUUJaU2xOWjJBTVdqTXA1NjJySHgxRHJzRG85TzFwT2swUHBVcjNXVVZGamxySHhqSVFSbnZQb2R1ZTJMTGs4RS95d2FFVmpKWjRsaGI0cUNCOEFPKzRFS0QrMCswbUVSTGlhbmJmVldMY2Q3ajNxMm1QdDd1ZlAzNTc4VHJ3clZ6MEQ2em1BclJlWXc5ZUNjWXJ6aXd0MWpMck5kRGI5ZGRxZEs1TmJ6ZjdSMkJtZEN2QWlOWDk0OVozclFhVmFUc3JPZGFXWlFvcURzdHcybkJUQk04dEl6SEQyY0txL0l4cVlLRjB1ZFVHTzBobDVuengxL2RJYW01NEJkblU2VFdqMmxCeU9RcVJEWEYyTDF6NGlYUHMvbTUxL0FBanBxTlRoVWRjM3pma2JzbUY0VktnV0xmK2UzSHJjRWUxaUMwcjZzdlpUbjVteFh6bm1jOXB5T1BRWTlKYzExZjJRbUN4bDBwQVlKdUZaOGNGblVFbzRTWStjdlhHMFVKeEVUN1VBRms5V3FVeU1Ma3NBdVArOU5VZk9PbEd3SE1FQUFBPSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["date"],"name":[1],"type":["date"],"align":["right"]},{"label":["user_submitted_review"],"name":[2],"type":["chr"],"align":["left"]},{"label":["title"],"name":[3],"type":["chr"],"align":["left"]},{"label":["total_purchased"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["customer_type"],"name":[5],"type":["chr"],"align":["left"]},{"label":["Positive_Review"],"name":[6],"type":["lgl"],"align":["right"]}],"data":[{"1":"2019-05-22","2":"it was okay","3":"Secrets Of R For Advanced Students","4":"7.000000","5":"Business","6":"FALSE","_rn_":"1"},{"1":"2019-11-16","2":"Awesome!","3":"R For Dummies","4":"3.000000","5":"Business","6":"TRUE","_rn_":"2"},{"1":"2019-06-27","2":"Awesome!","3":"R For Dummies","4":"1.000000","5":"Individual","6":"TRUE","_rn_":"3"},{"1":"2019-11-06","2":"Awesome!","3":"Fundamentals of R For Beginners","4":"3.000000","5":"Individual","6":"TRUE","_rn_":"4"},{"1":"2019-07-18","2":"Hated it","3":"Fundamentals of R For Beginners","4":"4.002569","5":"Business","6":"FALSE","_rn_":"5"},{"1":"2019-01-28","2":"Never read a better book","3":"Secrets Of R For Advanced Students","4":"1.000000","5":"Business","6":"TRUE","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10],"total":[6]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -365,6 +405,13 @@ head(sales)</code></pre>
 
 head(sales)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6NiwibmNvbCI6Nywic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbNiB4IDddIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQnBWVVMyOFRNUkIySHBzWFNvbUVrRGdnc1hCdlJJczROeTFSZ1FOUXBaZmVJbWM5b1NhN2R1VEhodHpLbWQvQWdRc1h6dHk1SVhIclArRVhGR1pqdTBwV0JCVkxxNW41UEI3UDQvT09obWRQT21jZFFraU4xQ3NWVW90UUpZMW5KM3Y3VC9jSnFWZlJxcEE2YVJmeVBYcmRRYVdKY3Fkd0cxeCt1aWo4QjVjL2laTmZ2UDNEeTYvZm5meEEzTm9JR0NVcDFScVYzaHBZSDFJREtLODgzdkQ0TFc3aUJkV3huTkdsaDFxSEM5QXlnNGMzdFY5Z2FCWno0KzE3cnlFSEZTdWdMS2J4Qkl4QmF5TGxySFQxbzFOSUZCZ2R2NW5Hby9oWXF2aVE1VlFrR092VVdBYkNhTy9aZGR0RG0yVWMvZ2srT0xhQzBRelAwaFNMQ29HUDRDMFhBdFIvdXQwa1EwTGN6TzY3U1F4YVRoNzgyclFIdmVybmo5K2V2d3A0cVJldEk2dTVBSzIzMkoyWGd2R2NNMHZUcmNqMkdPaTl1c3V0eXRvWDdQVmNxa0o2cmJhOGJ1eGZ3ZEoraVlZQ0d4eG8yQXcwWkFVTm5YN1hhbEJqYlNjWlI0cXdzWUtjd3lLY050eWt3Zk8ya1RpbzhkeXE1SnhxWUlFQmlkVUdpYWpHWmptLzlqMlJtaHVldzNpMEhxOU5wMGpEZHpaZGx0SnNLN25vaDFTN1JTVVhyaTBONTFqOVhYcEpIU3lCOXFjS2o3ajN0Qkd1S2VlR1M0SEJxc1diamtxSEs2b0U5S3dvTG1lN3lia1ZzOTI5eDM1WVlVQmRMeHRyZXRQZFdRdVpSVDVXQXdUeU56UWlTdWtFQWpkMnNNcFZrZjI1NGlLODFBNml1cjlxYmtBU21RYkUvU3l1L2dDM3l5YS96QVFBQUE9PSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["date"],"name":[1],"type":["date"],"align":["right"]},{"label":["user_submitted_review"],"name":[2],"type":["chr"],"align":["left"]},{"label":["title"],"name":[3],"type":["chr"],"align":["left"]},{"label":["total_purchased"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["customer_type"],"name":[5],"type":["chr"],"align":["left"]},{"label":["Positive_Review"],"name":[6],"type":["lgl"],"align":["right"]},{"label":["afterjuly"],"name":[7],"type":["chr"],"align":["left"]}],"data":[{"1":"2019-05-22","2":"it was okay","3":"Secrets Of R For Advanced Students","4":"7.000000","5":"Business","6":"FALSE","7":"no","_rn_":"1"},{"1":"2019-11-16","2":"Awesome!","3":"R For Dummies","4":"3.000000","5":"Business","6":"TRUE","7":"yes","_rn_":"2"},{"1":"2019-06-27","2":"Awesome!","3":"R For Dummies","4":"1.000000","5":"Individual","6":"TRUE","7":"no","_rn_":"3"},{"1":"2019-11-06","2":"Awesome!","3":"Fundamentals of R For Beginners","4":"3.000000","5":"Individual","6":"TRUE","7":"yes","_rn_":"4"},{"1":"2019-07-18","2":"Hated it","3":"Fundamentals of R For Beginners","4":"4.002569","5":"Business","6":"FALSE","7":"yes","_rn_":"5"},{"1":"2019-01-28","2":"Never read a better book","3":"Secrets Of R For Advanced Students","4":"1.000000","5":"Business","6":"TRUE","7":"no","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10],"total":[7]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -379,21 +426,39 @@ head(sales)</code></pre>
 
 print(sort_sales)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MiwibmNvbCI6Miwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIyIHggMiJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVFzVTdETUJDOU9FbFJJcldxeEIrd04xS0tHTmdxWUdPcG1McWF4RzFEalYwY1I2VWI0cXRZSzJaK2lLSGg3Tm9TdFFmZnUrZTdkL2Y4OUxDNHpoYzVBTVNRUkJIRUtVSVkzTS9MNmMwVUlDR1lSWkJBWnVJN1ZsMGlNT1RZeHRNREVkS2hlTTlhRENORHpnNC83UEh6KzNaMitIcTcycW5mUUMwVjlOVVcvMWZLNkZJejlkTHh2U05HZDFKdTJubW5xalZ0V1Ixb1pFcnVDcTh6TkRvZmVQVjlmd3lIVlp5MmZwZ244NXBxV2l3VjltTVd0bHpJclc2a3dDWmlQS2RCYzZRQ1l0d0pzMGs5cWRhZDJFekswa3l3NzZjemRKaWNZek9UOUU0cmRWb0RKbGFOWUg1NVRwOFo5eCtDbHEzallxc2FvYjBWWk50Q1MwMTlYVjVKN2hsckRvNS9UZFdPYk93QkFBQT0ifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["afterjuly"],"name":[1],"type":["chr"],"align":["left"]},{"label":["BooksPurchased"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"no","2":"9114.791"},{"1":"yes","2":"9072.884"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[2]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>the number of books sold did not increase after July 1st 2019. in fact there was a slight decline in sales.</p>
+<p>The total number of books sold did not increase after July 1st 2019. In fact there was a slight decline in sales.</p>
 </div>
 <div id="sort-the-data-based-on-before-and-after-july-1st-the-type-of-consumer.-did-they-gaine-purchases-from-a-specific-type-of-consumer" class="section level3">
 <h3>Sort the data based on before and after July 1st the type of consumer. Did they gaine purchases from a specific type of consumer?</h3>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc29ydF9zYWxlc19jdXN0b21lciA8LSBzYWxlcyAlPiUgXG4gIGdyb3VwX2J5KGFmdGVyanVseSxjdXN0b21lcl90eXBlKSAlPiUgXG4gICAgc3VtbWFyaXNlKEJvb2tzUHVyY2hhc2VkID0gc3VtKHRvdGFsX3B1cmNoYXNlZCkpXG5cbnByaW50KHNvcnRfc2FsZXNfY3VzdG9tZXIpXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc29ydF9zYWxlc19jdXN0b21lciA8LSBzYWxlcyAlPiUgXG4gIGdyb3VwX2J5KGFmdGVyanVseSxjdXN0b21lcl90eXBlKSAlPiUgXG4gICAgc3VtbWFyaXNlKEJvb2tzUHVyY2hhc2VkID0gc3VtKHRvdGFsX3B1cmNoYXNlZCkpXG5gYGAifQ== -->
 <pre class="r"><code>sort_sales_customer &lt;- sales %&gt;% 
   group_by(afterjuly,customer_type) %&gt;% 
-    summarise(BooksPurchased = sum(total_purchased))
-
-print(sort_sales_customer)</code></pre>
+    summarise(BooksPurchased = sum(total_purchased))</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiYHN1bW1hcmlzZSgpYCBoYXMgZ3JvdXBlZCBvdXRwdXQgYnkgJ2FmdGVyanVseScuIFlvdSBjYW4gb3ZlcnJpZGUgdXNpbmcgdGhlIGAuZ3JvdXBzYCBhcmd1bWVudC5cbiJ9 -->
+<pre><code>`summarise()` has grouped output by &#39;afterjuly&#39;. You can override using the `.groups` argument.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucHJpbnQoc29ydF9zYWxlc19jdXN0b21lcilcbmBgYCJ9 -->
+<pre class="r"><code>print(sort_sales_customer)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImdyb3VwZWRfZGYiLCJ0YmxfZGYiLCJ0YmwiLCJkYXRhLmZyYW1lIl0sIm5yb3ciOjQsIm5jb2wiOjMsInN1bW1hcnkiOnsiQSB0aWJibGUiOlsiNCB4IDMiXSwiR3JvdXBzIjpbImFmdGVyanVseSBbMl0iXX19LCJyZGYiOiJINHNJQUFBQUFBQUFCbzFSTzA3RFFCUjhqdTFBTEJKWlFod2psaEpFYndVYUdvaG9TSWNXZTBOTW5OMW9QMENvY2dGYVJKc2lPUUJWR3M3QUZlaTVBb3JadGIwb21BWkx0c2V6ODhadjNyczRHUng2QXc4QWJIQXNDMnhYUWFnZjl6dmRveTZBVTFOZkZqalEwTzhIcGRyUHBRQyt1cDN5b0Vib0gyVFBNTitHdnl0MmU1SW5CSE1qOFU1Sm5Od2xzVVRwUHhRQUxlMFZycytleGdmbjYzRDE4bmo1TWVIaGVybDQ5L2NXNGZKNS92bjJ1cXEwNzBZcDRxWVJRM294RWlnWU1qVEJGWG1EMGZ1QUtGNlhOSFcydVhwa1dmWlY5VFVpdjVoaVVZMkdBck5ibWM1S29obEpMdWdFc3lzeG0rS1NiUFVvSGZPK1pORUljUndyWmxNeDM2RlRrVkNpN0d0NjhtNmxmWXRWQ0Y4UzNVN2Nqa2FTak51ZHJzNllueGRYczhUT0ZyYUxmenBaNmVXV1huVk1idFFLVE13VVhXT3puWllhVGg0N21MS0VDRE5NeGZKQVVQR3pSUytpcVdIeWNMRDVCcGV1Z1hOeUFnQUEifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["afterjuly"],"name":[1],"type":["chr"],"align":["left"]},{"label":["customer_type"],"name":[2],"type":["chr"],"align":["left"]},{"label":["BooksPurchased"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"no","2":"Business","3":"6222.552"},{"1":"no","2":"Individual","3":"2892.239"},{"1":"yes","2":"Business","3":"6309.632"},{"1":"yes","2":"Individual","3":"2763.252"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[4]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>We can now see that the number of books purchased by businesses increased and the number of books purchased by individuals decreased significantly.</p>
@@ -409,13 +474,20 @@ print(sort_sales_customer)</code></pre>
 
 print(sort_sales_positive)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MiwibmNvbCI6Miwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIyIHggMiJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVBXMjdESUJCY1l6dVZMYVd5MUF2MEFyR1VSRDFCZTRBb1gvbWxEbWxwS1VTQTgvakxHWHFPbkRIT2drRnFzWVIzZHRpZFlkWnZtMlc5cVFFZ2h5TExJQzhSd3VSMU5WKzhMQUFLZ2wwR0JWU3VubkRxQ1lFakcxL0hDeUpWUVBtWkdTelRjWWo4NHJrbUtxV2tQMzdvcjBKRmQ1YnByMTZjQTlHc2xPR1dIOWp6bWgwNE81cEVwZExxMkVZbGIzZkIzekFNdDlTdUU5UkV1MGpXVzJwcHU5TzRqMTI2OHFEMmxpdUpTOFNsTFpQbFRDZEUwMHYza3Uycysremw5MnkrZEE3K2Z2eW1BWlAvMkhtU0lXaVZRV3ZDNUFlWExENWUwSGNtUXZPSWtYM2lkcSs1dERFS3NxYTF5dEk0VjNkS1JNYUhnOXNkR1N5Skx1WUJBQUE9In0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["afterjuly"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Positive Reviews"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"no","2":"658"},{"1":"yes","2":"684"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[2]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>There was a gain in about 30 positive reviews which is not a large number compared to 600, but it is still a slight increase. It may be an indication that they’re on the right track</p>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkJvb2sgUmV2aWV3cyINCmF1dGhvcjogIkVsaWphaCBTaWxmaWVzIg0KZGF0ZTogIjExLzIyLzIwMjEiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KSW4gdGhpcyBwcm9qZWN0IEkgd2lsbCBiZSBhbmFseXppbmcgYm9vayBzYWxlcyBkYXRhLiBPbiBKdWx5IDFzdCwgMjAxOSwgdGhpcyBjb21wYW55IGNoYW5nZWQgdGhlaXIgbWFya2V0aW5nIHN0cmF0ZWd5LCBzbyBJIHdpbGwgYmUgc2hvd2luZyB0aGUgYWZmZWN0IG9mIHRoYXQgbmV3IHN0cmF0ZWd5IG9uIHRoZWlyIGJvb2sgc2FsZXMuDQoNClRoZSB2YXJpYWJsZXMgaW4gdGhpcyBkYXRhIGNvbnNpc3Qgb2Y6DQoNCmRhdGUgPSBUaGUgZGF0ZSBvZiB0aGUgcHVyY2hhc2UgaW4gMjAxOQ0KDQp1c2VyX3N1Ym1pdHRlZF9yZXZpZXcgPSBUaGUgcmV2aWV3IG9uIHRoZSBib29rIGZyb20gdGhlIGN1c3RvbWVyDQoNCnRpdGxlID0gVGhlIHRpdGxlIG9mIHRoZSBib29rIHB1cmNoYXNlZA0KDQp0b3RhbF9wdXJjaGFzZWQgPSB0aGUgcXVhbnRpdHkgb2YgYm9va3MgcHVyY2hhc2VkIGJ5IHRoYXQgY3VzdG9tZXINCg0KY3VzdG9tZXJfdHlwZSA9IGJ1c2luZXNzIG9yIGluZGl2aWR1YWwgYmFzZWQgcHVyY2hhc2VkIA0KDQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KbGlicmFyeShsdWJyaWRhdGUpDQpzYWxlczIwMTkgPC0gcmVhZC5jc3YoInNhbGVzMjAxOS5jc3YiKQ0KYGBgDQoNCiMjIyBBbmFseXNlIHRoZSBkYXRhDQpgYGB7cn0NCmdsaW1wc2Uoc2FsZXMyMDE5KQ0KYGBgDQpUaGUgdXNlcl9zdWJtaXR0ZWRfcmV2aWV3IGNvbHVtbiBhbmQgdGhlIHRvdGFsX3B1cmNoYXNlZCBjb2x1bW4gYXJlIGJvdGggbWlzc2luZyBzb21lIGRhdGEgdmFsdWVzLiBBbHNvIHRvdGFsX3B1cmNoYXNlZCBpcyBpbiBpbnRlZ2VyIGZvcm0sIHNvIEkgd2lsbCBiZSBjb252ZXJ0aW5nIHRoaXMgdG8gYSBkb3VibGUgdG8gc2F2ZSBzb21lIHRyb3VibGUgZG9pbmcgY2FsY3VsYXRpb25zLg0KDQojIyMgQ2hhbmdlIHRvdGFsLXB1cmNoYXNlZCBjb2x1bW4gdG8gZG91YmxlIHZhcmlhYmxlDQpgYGB7cn0NCnNhbGVzMjAxOSA8LSBzYWxlczIwMTkgJT4lIA0KICBtdXRhdGUodG90YWxfcHVyY2hhc2VkID0gYXMuZG91YmxlKHNhbGVzMjAxOSR0b3RhbF9wdXJjaGFzZWQpKQ0KYGBgDQoNCiMjIyBSZW1vdmUgTkEgdmFsdWVzIGluIHRoZSB1c2VyIHJldmlldyBjb2x1bW4NCmBgYHtyfQ0Kc2FsZXMyMDE5IDwtIHNhbGVzMjAxOSAlPiUgDQogIGZpbHRlcighaXMubmEodXNlcl9zdWJtaXR0ZWRfcmV2aWV3KSkNCmBgYA0KQSB0b3RhbCBvZiA4ODUgdmFsdWVzIHdlcmUgbG9zdCBzbyBpbnN0ZWFkIEkgd2lsbCBzdWJzdGl0dXRlIHRoZSBOQSB2YWx1ZXMgZm9yIHRoZSBtZWFuIG9mIHRoZSB0b3RhbCBib29rcyBwdXJjaGFzZWQuDQoNCiMjIyBGaW5kIHRoZSBhdmVyYWdlIG9mIGJvb2tzIHNvbGQgcGVyIGN1c3RvbWVyDQpgYGB7cn0NCmF2Z3NhbGVzIDwtIHNhbGVzMjAxOSAlPiUgDQogIGZpbHRlcighaXMubmEodG90YWxfcHVyY2hhc2VkKSkgJT4lIA0KICAgIHB1bGwodG90YWxfcHVyY2hhc2VkKSAlPiUgDQogICAgICBtZWFuDQoNCnByaW50KGF2Z3NhbGVzKQ0KYGBgDQoNCiMjIyBTdWIgdGhlIE5BIHZhbHVlcyBmb3IgdGhlIGF2ZXJlYWdlIG9mIGFsbCBib29rcyBwdXJjaGFzZWQNCmBgYHtyfQ0Kc2FsZXMgPC0gc2FsZXMyMDE5ICU+JSANCiAgbXV0YXRlKA0KICAgIHRvdGFsX3B1cmNoYXNlZCA9IGlmX2Vsc2UoaXMubmEodG90YWxfcHVyY2hhc2VkKSwNCiAgICBhdmdzYWxlcywNCiAgICB0b3RhbF9wdXJjaGFzZWQpDQogICAgICAgICkNCg0KaGVhZChzYWxlcykNCmBgYA0KDQojIyMgRmluZCB0aGUgdW5pcXVlIHJldmlld3MNCmBgYHtyfQ0Kc2FsZXMgJT4lIA0KICBwdWxsKHVzZXJfc3VibWl0dGVkX3JldmlldykgJT4lIA0KICAgIHVuaXF1ZQ0KYGBgDQoNCiMjIyBEZXRlcm1pbmluZyBwb3NpdGl2ZSBvciBuZWdhdGl2ZSByZXZpZXdzIHdpdGggYSBuZXcgY29sdW1uDQpgYGB7cn0NCnNhbGVzIDwtIHNhbGVzICU+JSANCiAgbXV0YXRlKA0KICAgIFBvc2l0aXZlX1JldmlldyA9IA0KICAgICAgY2FzZV93aGVuKA0KICAgICAgICBzdHJfZGV0ZWN0KHVzZXJfc3VibWl0dGVkX3JldmlldywgcGF0dGVybiA9ICJBd2Vzb21lIikgPT0gVFJVRSB+IFRSVUUsDQogICAgICAgIHN0cl9kZXRlY3QodXNlcl9zdWJtaXR0ZWRfcmV2aWV3LCBwYXR0ZXJuID0gIk5ldmVyIHJlYWQiKSA9PSBUUlVFIH4gVFJVRSwNCiAgICAgICAgc3RyX2RldGVjdCh1c2VyX3N1Ym1pdHRlZF9yZXZpZXcsIHBhdHRlcm4gPSAibGVhcm5lZCIpID09IFRSVUUgfiBUUlVFLA0KICAgICAgIFRSVUUgfiBGQUxTRQ0KICAgICAgICAgICAgICApDQogICAgICAgICkNCg0KaGVhZChzYWxlcykNCmBgYA0KDQojIyMgQ2hhbmdpbmcgdGhlIGZvcm1hdCBvbiB0aGUgZGF0ZXMNCmBgYHtyfQ0Kc2FsZXMgPC0gc2FsZXMgJT4lIA0KICBtdXRhdGUoDQogICAgZGF0ZSA9IG1keShkYXRlKQ0KICAgICAgICApDQoNCmhlYWQoc2FsZXMpDQpgYGANCg0KIyMjIERvIHRoZSBzYWxlcyBoYXBwZW4gYmVmb3JlIG9yIGFmdGVyIGp1bHkgMXN0IDIwMTk/DQpgYGB7cn0NCnNhbGVzIDwtIHNhbGVzICU+JQ0KICBtdXRhdGUoDQogICAgYWZ0ZXJqdWx5ID0gDQogICAgICBjYXNlX3doZW4oDQogICAgICAgIHltZChkYXRlKSA8IG1keSgiNy0xLTE5IikgfiAibm8iLA0KICAgICAgICAgeW1kKGRhdGUpID49IG1keSgiNy0xLTE5IikgfiAieWVzIg0KICAgICAgICAgICAgICAgKQ0KICAgICAgICApDQoNCmhlYWQoc2FsZXMpDQpgYGANCg0KIyMjIFNvcnQgdGhlIGRhdGEgc2V0IGJ5IGJlZm9yZSBhbmQgYWZ0ZXIgSnVseSAxc3QuIERpZCB0aGUgbWFya2V0aW5nIGNoYW5nZSBpbmNyZWFjZSB0aGUgbnVtYmVyIG9mIGJvb2tzIHNvbGQ/DQpgYGB7cn0NCnNvcnRfc2FsZXMgPC0gc2FsZXMgJT4lIA0KICBncm91cF9ieShhZnRlcmp1bHkpICU+JSANCiAgICBzdW1tYXJpc2UoQm9va3NQdXJjaGFzZWQgPXN1bSh0b3RhbF9wdXJjaGFzZWQpKQ0KDQpwcmludChzb3J0X3NhbGVzKQ0KYGBgDQp0aGUgbnVtYmVyIG9mIGJvb2tzIHNvbGQgZGlkIG5vdCBpbmNyZWFzZSBhZnRlciBKdWx5IDFzdCAyMDE5LiBpbiBmYWN0IHRoZXJlIHdhcyBhIHNsaWdodCBkZWNsaW5lIGluIHNhbGVzLg0KDQojIyMgU29ydCB0aGUgZGF0YSBiYXNlZCBvbiBiZWZvcmUgYW5kIGFmdGVyIEp1bHkgMXN0IHRoZSB0eXBlIG9mIGNvbnN1bWVyLiBEaWQgdGhleSBnYWluZSBwdXJjaGFzZXMgZnJvbSBhIHNwZWNpZmljIHR5cGUgb2YgY29uc3VtZXI/DQpgYGB7cn0NCnNvcnRfc2FsZXNfY3VzdG9tZXIgPC0gc2FsZXMgJT4lIA0KICBncm91cF9ieShhZnRlcmp1bHksY3VzdG9tZXJfdHlwZSkgJT4lIA0KICAgIHN1bW1hcmlzZShCb29rc1B1cmNoYXNlZCA9IHN1bSh0b3RhbF9wdXJjaGFzZWQpKQ0KDQpwcmludChzb3J0X3NhbGVzX2N1c3RvbWVyKQ0KYGBgDQpXZSBjYW4gbm93IHNlZSB0aGF0IHRoZSBudW1iZXIgb2YgYm9va3MgcHVyY2hhc2VkIGJ5IGJ1c2luZXNzZXMgaW5jcmVhc2VkIGFuZCB0aGUgbnVtYmVyIG9mIGJvb2tzIHB1cmNoYXNlZCBieSBpbmRpdmlkdWFscyBkZWNyZWFzZWQgc2lnbmlmaWNhbnRseS4gDQoNCiMjIyBEaWQgdGhlIG51bWJlciBvZiBwb3NpdGl2ZSBzYWxlcyBpbmNyZWFzZSBhZnRlciBqdWx5IDFzdD8NCmBgYHtyfQ0Kc29ydF9zYWxlc19wb3NpdGl2ZSA8LSBzYWxlcyAlPiUgDQogIGdyb3VwX2J5KGFmdGVyanVseSkgJT4lIA0KICAgIHN1bW1hcmlzZShgUG9zaXRpdmUgUmV2aWV3c2A9IHN1bShQb3NpdGl2ZV9SZXZpZXcpKQ0KDQpwcmludChzb3J0X3NhbGVzX3Bvc2l0aXZlKQ0KYGBgDQpUaGVyZSB3YXMgYSBnYWluIGluIGFib3V0IDMwIHBvc2l0aXZlIHJldmlld3Mgd2hpY2ggaXMgbm90IGEgbGFyZ2UgbnVtYmVyIGNvbXBhcmVkIHRvIDYwMCwgYnV0IGl0IGlzIHN0aWxsIGEgc2xpZ2h0IGluY3JlYXNlLiBJdCBtYXkgYmUgYW4gaW5kaWNhdGlvbiB0aGF0IHRoZXkncmUgb24gdGhlIHJpZ2h0IHRyYWNrDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkJvb2sgUmV2aWV3cyINCmF1dGhvcjogIkVsaWphaCBTaWxmaWVzIg0KZGF0ZTogIjExLzIyLzIwMjEiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KSW4gdGhpcyBwcm9qZWN0IEkgd2lsbCBiZSBhbmFseXppbmcgYm9vayBzYWxlcyBkYXRhLiBPbiBKdWx5IDFzdCwgMjAxOSwgdGhpcyBjb21wYW55IGNoYW5nZWQgdGhlaXIgbWFya2V0aW5nIHN0cmF0ZWd5LCBzbyBJIHdpbGwgYmUgc2hvd2luZyB0aGUgYWZmZWN0IG9mIHRoYXQgbmV3IHN0cmF0ZWd5IG9uIHRoZWlyIGJvb2sgc2FsZXMuDQoNClRoZSB2YXJpYWJsZXMgaW4gdGhpcyBkYXRhIGNvbnNpc3Qgb2Y6DQoNCmRhdGUgPSBUaGUgZGF0ZSBvZiB0aGUgcHVyY2hhc2UgaW4gMjAxOQ0KDQp1c2VyX3N1Ym1pdHRlZF9yZXZpZXcgPSBUaGUgcmV2aWV3IG9uIHRoZSBib29rIGZyb20gdGhlIGN1c3RvbWVyDQoNCnRpdGxlID0gVGhlIHRpdGxlIG9mIHRoZSBib29rIHB1cmNoYXNlZA0KDQp0b3RhbF9wdXJjaGFzZWQgPSB0aGUgcXVhbnRpdHkgb2YgYm9va3MgcHVyY2hhc2VkIGJ5IHRoYXQgY3VzdG9tZXINCg0KY3VzdG9tZXJfdHlwZSA9IGJ1c2luZXNzIG9yIGluZGl2aWR1YWwgYmFzZWQgcHVyY2hhc2VkIA0KDQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KbGlicmFyeShsdWJyaWRhdGUpDQpzYWxlczIwMTkgPC0gcmVhZC5jc3YoInNhbGVzMjAxOS5jc3YiKQ0KYGBgDQoNCiMjIyBBbmFseXNlIHRoZSBkYXRhDQpgYGB7cn0NCmdsaW1wc2Uoc2FsZXMyMDE5KQ0KYGBgDQpUaGUgdXNlcl9zdWJtaXR0ZWRfcmV2aWV3IGNvbHVtbiBhbmQgdGhlIHRvdGFsX3B1cmNoYXNlZCBjb2x1bW4gYXJlIGJvdGggbWlzc2luZyBzb21lIGRhdGEgdmFsdWVzLiBBbHNvIHRvdGFsX3B1cmNoYXNlZCBpcyBpbiBpbnRlZ2VyIGZvcm0sIHNvIEkgd2lsbCBiZSBjb252ZXJ0aW5nIHRoaXMgdG8gYSBkb3VibGUgdG8gc2F2ZSBzb21lIHRyb3VibGUgZG9pbmcgY2FsY3VsYXRpb25zLg0KDQojIyMgQ2hhbmdlIHRvdGFsLXB1cmNoYXNlZCBjb2x1bW4gdG8gZG91YmxlIHZhcmlhYmxlDQpgYGB7cn0NCnNhbGVzMjAxOSA8LSBzYWxlczIwMTkgJT4lIA0KICBtdXRhdGUodG90YWxfcHVyY2hhc2VkID0gYXMuZG91YmxlKHNhbGVzMjAxOSR0b3RhbF9wdXJjaGFzZWQpKQ0KYGBgDQoNCiMjIyBSZW1vdmUgTkEgdmFsdWVzIGluIHRoZSB1c2VyIHJldmlldyBjb2x1bW4NCmBgYHtyfQ0Kc2FsZXMyMDE5IDwtIHNhbGVzMjAxOSAlPiUgDQogIGZpbHRlcighaXMubmEodXNlcl9zdWJtaXR0ZWRfcmV2aWV3KSkNCmBgYA0KQSB0b3RhbCBvZiA4ODUgdmFsdWVzIHdlcmUgbG9zdCBzbyBpbnN0ZWFkIEkgd2lsbCBzdWJzdGl0dXRlIHRoZSBOQSB2YWx1ZXMgZm9yIHRoZSBtZWFuIG9mIHRoZSB0b3RhbCBib29rcyBwdXJjaGFzZWQuDQoNCiMjIyBGaW5kIHRoZSBhdmVyYWdlIG9mIGJvb2tzIHNvbGQgcGVyIGN1c3RvbWVyDQpgYGB7cn0NCmF2Z3NhbGVzIDwtIHNhbGVzMjAxOSAlPiUgDQogIGZpbHRlcighaXMubmEodG90YWxfcHVyY2hhc2VkKSkgJT4lIA0KICAgIHB1bGwodG90YWxfcHVyY2hhc2VkKSAlPiUgDQogICAgICBtZWFuDQoNCnByaW50KGF2Z3NhbGVzKQ0KYGBgDQoNCiMjIyBTdWIgdGhlIE5BIHZhbHVlcyBmb3IgdGhlIGF2ZXJlYWdlIG9mIGFsbCBib29rcyBwdXJjaGFzZWQNCmBgYHtyfQ0Kc2FsZXMgPC0gc2FsZXMyMDE5ICU+JSANCiAgbXV0YXRlKA0KICAgIHRvdGFsX3B1cmNoYXNlZCA9IGlmX2Vsc2UoaXMubmEodG90YWxfcHVyY2hhc2VkKSwNCiAgICBhdmdzYWxlcywNCiAgICB0b3RhbF9wdXJjaGFzZWQpDQogICAgICAgICkNCg0KaGVhZChzYWxlcykNCmBgYA0KDQojIyMgRmluZCB0aGUgdW5pcXVlIHJldmlld3MNCmBgYHtyfQ0Kc2FsZXMgJT4lIA0KICBwdWxsKHVzZXJfc3VibWl0dGVkX3JldmlldykgJT4lIA0KICAgIHVuaXF1ZQ0KYGBgDQoNCiMjIyBEZXRlcm1pbmluZyBwb3NpdGl2ZSBvciBuZWdhdGl2ZSByZXZpZXdzIHdpdGggYSBuZXcgY29sdW1uDQpgYGB7cn0NCnNhbGVzIDwtIHNhbGVzICU+JSANCiAgbXV0YXRlKA0KICAgIFBvc2l0aXZlX1JldmlldyA9IA0KICAgICAgY2FzZV93aGVuKA0KICAgICAgICBzdHJfZGV0ZWN0KHVzZXJfc3VibWl0dGVkX3JldmlldywgcGF0dGVybiA9ICJBd2Vzb21lIikgPT0gVFJVRSB+IFRSVUUsDQogICAgICAgIHN0cl9kZXRlY3QodXNlcl9zdWJtaXR0ZWRfcmV2aWV3LCBwYXR0ZXJuID0gIk5ldmVyIHJlYWQiKSA9PSBUUlVFIH4gVFJVRSwNCiAgICAgICAgc3RyX2RldGVjdCh1c2VyX3N1Ym1pdHRlZF9yZXZpZXcsIHBhdHRlcm4gPSAibGVhcm5lZCIpID09IFRSVUUgfiBUUlVFLA0KICAgICAgIFRSVUUgfiBGQUxTRQ0KICAgICAgICAgICAgICApDQogICAgICAgICkNCg0KaGVhZChzYWxlcykNCmBgYA0KDQojIyMgQ2hhbmdpbmcgdGhlIGZvcm1hdCBvbiB0aGUgZGF0ZXMNCmBgYHtyfQ0Kc2FsZXMgPC0gc2FsZXMgJT4lIA0KICBtdXRhdGUoDQogICAgZGF0ZSA9IG1keShkYXRlKQ0KICAgICAgICApDQoNCmhlYWQoc2FsZXMpDQpgYGANCg0KIyMjIERvIHRoZSBzYWxlcyBoYXBwZW4gYmVmb3JlIG9yIGFmdGVyIGp1bHkgMXN0IDIwMTk/DQpgYGB7cn0NCnNhbGVzIDwtIHNhbGVzICU+JQ0KICBtdXRhdGUoDQogICAgYWZ0ZXJqdWx5ID0gDQogICAgICBjYXNlX3doZW4oDQogICAgICAgIHltZChkYXRlKSA8IG1keSgiNy0xLTE5IikgfiAibm8iLA0KICAgICAgICAgeW1kKGRhdGUpID49IG1keSgiNy0xLTE5IikgfiAieWVzIg0KICAgICAgICAgICAgICAgKQ0KICAgICAgICApDQoNCmhlYWQoc2FsZXMpDQpgYGANCg0KIyMjIFNvcnQgdGhlIGRhdGEgc2V0IGJ5IGJlZm9yZSBhbmQgYWZ0ZXIgSnVseSAxc3QuIERpZCB0aGUgbWFya2V0aW5nIGNoYW5nZSBpbmNyZWFjZSB0aGUgbnVtYmVyIG9mIGJvb2tzIHNvbGQ/DQpgYGB7cn0NCnNvcnRfc2FsZXMgPC0gc2FsZXMgJT4lIA0KICBncm91cF9ieShhZnRlcmp1bHkpICU+JSANCiAgICBzdW1tYXJpc2UoQm9va3NQdXJjaGFzZWQgPXN1bSh0b3RhbF9wdXJjaGFzZWQpKQ0KDQpwcmludChzb3J0X3NhbGVzKQ0KYGBgDQpUaGUgdG90YWwgbnVtYmVyIG9mIGJvb2tzIHNvbGQgZGlkIG5vdCBpbmNyZWFzZSBhZnRlciBKdWx5IDFzdCAyMDE5LiBJbiBmYWN0IHRoZXJlIHdhcyBhIHNsaWdodCBkZWNsaW5lIGluIHNhbGVzLg0KDQojIyMgU29ydCB0aGUgZGF0YSBiYXNlZCBvbiBiZWZvcmUgYW5kIGFmdGVyIEp1bHkgMXN0IHRoZSB0eXBlIG9mIGNvbnN1bWVyLiBEaWQgdGhleSBnYWluZSBwdXJjaGFzZXMgZnJvbSBhIHNwZWNpZmljIHR5cGUgb2YgY29uc3VtZXI/DQpgYGB7cn0NCnNvcnRfc2FsZXNfY3VzdG9tZXIgPC0gc2FsZXMgJT4lIA0KICBncm91cF9ieShhZnRlcmp1bHksY3VzdG9tZXJfdHlwZSkgJT4lIA0KICAgIHN1bW1hcmlzZShCb29rc1B1cmNoYXNlZCA9IHN1bSh0b3RhbF9wdXJjaGFzZWQpKQ0KDQpwcmludChzb3J0X3NhbGVzX2N1c3RvbWVyKQ0KYGBgDQpXZSBjYW4gbm93IHNlZSB0aGF0IHRoZSBudW1iZXIgb2YgYm9va3MgcHVyY2hhc2VkIGJ5IGJ1c2luZXNzZXMgaW5jcmVhc2VkIGFuZCB0aGUgbnVtYmVyIG9mIGJvb2tzIHB1cmNoYXNlZCBieSBpbmRpdmlkdWFscyBkZWNyZWFzZWQgc2lnbmlmaWNhbnRseS4gDQoNCiMjIyBEaWQgdGhlIG51bWJlciBvZiBwb3NpdGl2ZSBzYWxlcyBpbmNyZWFzZSBhZnRlciBqdWx5IDFzdD8NCmBgYHtyfQ0Kc29ydF9zYWxlc19wb3NpdGl2ZSA8LSBzYWxlcyAlPiUgDQogIGdyb3VwX2J5KGFmdGVyanVseSkgJT4lIA0KICAgIHN1bW1hcmlzZShgUG9zaXRpdmUgUmV2aWV3c2A9IHN1bShQb3NpdGl2ZV9SZXZpZXcpKQ0KDQpwcmludChzb3J0X3NhbGVzX3Bvc2l0aXZlKQ0KYGBgDQpUaGVyZSB3YXMgYSBnYWluIGluIGFib3V0IDMwIHBvc2l0aXZlIHJldmlld3Mgd2hpY2ggaXMgbm90IGEgbGFyZ2UgbnVtYmVyIGNvbXBhcmVkIHRvIDYwMCwgYnV0IGl0IGlzIHN0aWxsIGEgc2xpZ2h0IGluY3JlYXNlLiBJdCBtYXkgYmUgYW4gaW5kaWNhdGlvbiB0aGF0IHRoZXkncmUgb24gdGhlIHJpZ2h0IHRyYWNrDQo=</div>
 
 
 
