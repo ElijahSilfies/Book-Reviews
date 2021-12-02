@@ -1,0 +1,143 @@
+---
+title: "Book Reviews"
+author: "Elijah Silfies"
+date: "11/22/2021"
+output: html_notebook
+---
+In this project I will be analyzing book sales data. On July 1st, 2019, this company changed their marketing strategy, so I will be showing the affect of that new strategy on their book sales.
+
+The variables in this data consist of:
+
+date = The date of the purchase in 2019
+
+user_submitted_review = The review on the book from the customer
+
+title = The title of the book purchased
+
+total_purchased = the quantity of books purchased by that customer
+
+customer_type = business or individual based purchased 
+
+```{r}
+library(tidyverse)
+library(lubridate)
+sales2019 <- read.csv("sales2019.csv")
+```
+
+### Analyse the data
+```{r}
+glimpse(sales2019)
+```
+The user_submitted_review column and the total_purchased column are both missing some data values. Also total_purchased is in integer form, so I will be converting this to a double to save some trouble doing calculations.
+
+### Change total-purchased column to double variable
+```{r}
+sales2019 <- sales2019 %>% 
+  mutate(total_purchased = as.double(sales2019$total_purchased))
+```
+
+### Remove NA values in the user review column
+```{r}
+sales2019 <- sales2019 %>% 
+  filter(!is.na(user_submitted_review))
+```
+A total of 885 values were lost so instead I will substitute the NA values for the mean of the total books purchased.
+
+### Find the average of books sold per customer
+```{r}
+avgsales <- sales2019 %>% 
+  filter(!is.na(total_purchased)) %>% 
+    pull(total_purchased) %>% 
+      mean
+
+print(avgsales)
+```
+
+### Sub the NA values for the avereage of all books purchased
+```{r}
+sales <- sales2019 %>% 
+  mutate(
+    total_purchased = if_else(is.na(total_purchased),
+    avgsales,
+    total_purchased)
+        )
+
+head(sales)
+```
+
+### Find the unique reviews
+```{r}
+sales %>% 
+  pull(user_submitted_review) %>% 
+    unique
+```
+
+### Determining positive or negative reviews with a new column
+```{r}
+sales <- sales %>% 
+  mutate(
+    Positive_Review = 
+      case_when(
+        str_detect(user_submitted_review, pattern = "Awesome") == TRUE ~ TRUE,
+        str_detect(user_submitted_review, pattern = "Never read") == TRUE ~ TRUE,
+        str_detect(user_submitted_review, pattern = "learned") == TRUE ~ TRUE,
+       TRUE ~ FALSE
+              )
+        )
+
+head(sales)
+```
+
+### Changing the format on the dates
+```{r}
+sales <- sales %>% 
+  mutate(
+    date = mdy(date)
+        )
+
+head(sales)
+```
+
+### Do the sales happen before or after july 1st 2019?
+```{r}
+sales <- sales %>%
+  mutate(
+    afterjuly = 
+      case_when(
+        ymd(date) < mdy("7-1-19") ~ "no",
+         ymd(date) >= mdy("7-1-19") ~ "yes"
+               )
+        )
+
+head(sales)
+```
+
+### Sort the data set by before and after July 1st. Did the marketing change increace the number of books sold?
+```{r}
+sort_sales <- sales %>% 
+  group_by(afterjuly) %>% 
+    summarise(BooksPurchased =sum(total_purchased))
+
+print(sort_sales)
+```
+the number of books sold did not increase after July 1st 2019. in fact there was a slight decline in sales.
+
+### Sort the data based on before and after July 1st the type of consumer. Did they gaine purchases from a specific type of consumer?
+```{r}
+sort_sales_customer <- sales %>% 
+  group_by(afterjuly,customer_type) %>% 
+    summarise(BooksPurchased = sum(total_purchased))
+
+print(sort_sales_customer)
+```
+We can now see that the number of books purchased by businesses increased and the number of books purchased by individuals decreased significantly. 
+
+### Did the number of positive sales increase after july 1st?
+```{r}
+sort_sales_positive <- sales %>% 
+  group_by(afterjuly) %>% 
+    summarise(`Positive Reviews`= sum(Positive_Review))
+
+print(sort_sales_positive)
+```
+There was a gain in about 30 positive reviews which is not a large number compared to 600, but it is still a slight increase. It may be an indication that they're on the right track
